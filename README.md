@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Nested Menu Drawer - React Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully accessible, animated drawer component with nested menu navigation built for mobile-first experiences. Features smooth transitions, intuitive back navigation, and keyboard accessibility.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[View Live Demo →](https://nested-menu-drawer-nu.vercel.app/)**
 
-## React Compiler
+Try it out on your mobile device for the best experience!
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ✅ **Smooth Animations** - Direction-aware slide animations with Framer Motion
+- ✅ **Multi-Level Navigation** - Support for unlimited nested menu levels
+- ✅ **Full Accessibility** - ARIA compliant with keyboard navigation support
+- ✅ **Mobile Optimized** - Drag-to-close gesture and responsive design
+- ✅ **TypeScript Support** - Fully typed for better DX
+- ✅ **Customizable** - Easy to style with Tailwind CSS
+- ✅ **Lightweight** - Minimal dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19+** - UI framework
+- **TypeScript** - Type safety
+- **Framer Motion** - Smooth animations
+- **Tailwind CSS** - Styling
+- **Lucide React** - Icon library (optional)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📦 Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the repository
+git clone https://github.com/kshatsharmaaa/nested-menu-drawer.git
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Navigate to project directory
+cd nested-menu-drawer
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Install dependencies
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+or
+yarn install
+
+Start development server
+npm run dev
+
+
+
+## 📁 Project Structure
+
+src/
+├── types/
+│ └── menu.ts # TypeScript interfaces
+├── data/
+│ └── menuData.ts # Menu configuration
+├── hooks/
+│ └── useMenuNavigation.ts # Navigation state management
+├── components/
+│ ├── OpenMenuButton.tsx # Trigger button
+│ ├── MenuDrawer.tsx # Main drawer container
+│ └── MenuItem.tsx # Individual menu item
+└── App.tsx # Main application
