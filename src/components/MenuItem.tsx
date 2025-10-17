@@ -9,6 +9,7 @@ interface MenuItemProps {
 
 export function MenuItem({ item, onClick }: MenuItemProps) {
   const hasChildren = item.children && item.children.length > 0;
+  const IconComponent = item.icon;
 
   return (
     <button
@@ -17,12 +18,12 @@ export function MenuItem({ item, onClick }: MenuItemProps) {
       aria-label={item.label}
       aria-haspopup={hasChildren}
     >
-      {/* Icon */}
+      
       <div className="flex-shrink-0 text-gray-700">
-        {item.icon}
+        {IconComponent && <IconComponent className="w-5 h-5" />}
       </div>
 
-      {/* Text Content */}
+      
       <div className="flex-1 min-w-0">
         <div className="font-medium text-gray-900 text-sm">
           {item.label}
@@ -34,7 +35,7 @@ export function MenuItem({ item, onClick }: MenuItemProps) {
         )}
       </div>
 
-      {/* Arrow indicator for items with children */}
+      
       {hasChildren && (
         <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0 group-hover:text-gray-600 transition-colors" />
       )}
