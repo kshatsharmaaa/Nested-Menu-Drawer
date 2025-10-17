@@ -1,6 +1,6 @@
-
 import type { MenuItem as MenuItemType } from '../types/menu';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { PanInfo } from 'framer-motion';  
 import { MenuItem } from './MenuItem';
 import { ChevronLeft } from 'lucide-react';
 
@@ -21,6 +21,14 @@ export function MenuDrawer({
   goBack,
   canGoBack,
 }: MenuDrawerProps) {
+  
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    
+    if (info.offset.y > 150) {
+      onClose();
+    }
+  };
+
   return (
     <AnimatePresence>
       {open && (
@@ -42,12 +50,16 @@ export function MenuDrawer({
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            drag="y"
+            dragConstraints={{ top: 0, bottom: 0 }}
+            dragElastic={{ top: 0, bottom: 0.5 }}
+            onDragEnd={handleDragEnd}
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
           >
             {/* Drag Handle */}
-            <div className="flex justify-center pt-3 pb-2">
+            <div className="flex justify-center pt-3 pb-2 cursor-grab active:cursor-grabbing">
               <div className="w-12 h-1 bg-gray-300 rounded-full" />
             </div>
 
