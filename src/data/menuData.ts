@@ -1,7 +1,6 @@
-// src/data/menuData.ts
+
 import type { MenuItem } from '../types/menu';
 
-// Root menu (as in the "Home" view)
 export const rootMenuData: MenuItem[] = [
   {
     id: '1',
